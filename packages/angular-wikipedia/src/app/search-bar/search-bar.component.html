@@ -1,0 +1,10 @@
+<article class="box">
+	<form (submit)="onFormSubmit($event)">
+		<input
+			#searchInput
+			(keyup)="onInput(searchInput.value)"
+			placeholder="Enter Search Term"
+			class="input"
+		/>
+	</form>
+</article>

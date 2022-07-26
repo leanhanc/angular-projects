@@ -1,0 +1,13 @@
+@import "bulma/css/bulma.css";
+
+body {
+	padding-top: 4rem;
+}
+/* You can add global styles to this file, and also import other style files */
+span.searchmatch {
+	font-weight: bold;
+}
+
+table {
+	margin-top: 2rem;
+}
