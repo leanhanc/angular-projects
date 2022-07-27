@@ -1,0 +1,54 @@
+<section class="columns">
+	<div class="column">
+		<app-card
+			[name]="cardForm.controls.name.value || ''"
+			[expiration]="cardForm.controls.epxiration.value || ''"
+			[cardNumber]="cardForm.controls.cardNumber.value || ''"
+		></app-card>
+	</div>
+
+	<div class="column">
+		<form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+			<app-input
+				*ngIf="cardForm.controls.name"
+				[control]="cardForm.controls.name"
+				label="Name"
+			></app-input>
+			<div class="columns">
+				<div class="column">
+					<app-input
+						*ngIf="cardForm.controls.cardNumber"
+						[control]="cardForm.controls.cardNumber"
+						label="Card Number"
+					></app-input>
+					<app-input
+						*ngIf="cardForm.controls.epxiration"
+						[control]="cardForm.controls.epxiration"
+						label="Expiration"
+					></app-input>
+				</div>
+				<div class="column">
+					<app-input
+						*ngIf="cardForm.controls.securityCode"
+						[control]="cardForm.controls.securityCode"
+						label="Security Code"
+					></app-input>
+				</div>
+			</div>
+
+			<footer class="buttons">
+				<button
+					type="submit"
+					class="button is-primary"
+					[disabled]="cardForm.invalid"
+				>
+					Submit
+				</button>
+
+				<button class="button is-warning" type="button" (click)="onReset()">
+					Reset
+				</button>
+			</footer>
+		</form>
+	</div>
+</section>
