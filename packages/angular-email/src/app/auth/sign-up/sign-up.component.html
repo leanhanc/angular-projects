@@ -1,0 +1,37 @@
+<h3>Create an Account</h3>
+
+<form [formGroup]="authForm" class="ui form" (ngSubmit)="onSubmit()">
+  <app-input
+    label="User Name"
+    [control]="authForm.controls.userName"
+  ></app-input>
+  <app-input
+    label="Password"
+    [control]="authForm.controls.password"
+    inputType="password"
+  ></app-input>
+  <app-input
+    label="Password confirmation"
+    [control]="authForm.controls.passwordConfirmation"
+    inputType="password"
+  ></app-input>
+
+  <div
+    *ngIf="
+      authForm.controls.password.touched &&
+      authForm.controls.passwordConfirmation.touched &&
+      !!authForm.errors
+    "
+    class="ui red basic label"
+  >
+    <p *ngIf="authForm.errors['passwordsUnmatch']">
+      Password and confirmation unmatch.
+    </p>
+    <p *ngIf="authForm.errors['noConnection']">
+      No internet connection detected, failed to sign up.
+    </p>
+    <p *ngIf="authForm.errors['unknownError']">Unknown error.</p>
+  </div>
+
+  <button class="ui submit button primary">Submit</button>
+</form>

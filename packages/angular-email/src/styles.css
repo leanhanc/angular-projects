@@ -1,0 +1,8 @@
+@import "semantic-ui-css/semantic.css";
+
+body {
+  padding: 2rem;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
